@@ -10,6 +10,11 @@ import (
 )
 
 func main() {
+	dir := "." // Current directory
+	if len(os.Args) > 1 {
+		dir = os.Args[1]
+	}
+
 	err := githubthanks.GenerateThanks(dir)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error: %v\n", err)
